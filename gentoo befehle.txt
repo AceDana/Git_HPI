@@ -1,0 +1,5 @@
+dispatch-conf
+---
+glsa-check -p affected
+---
+emerge --sync

@@ -1,0 +1,2 @@
+ln -s ews-monitor /var/www/vhosts/ews.mp.local/production
+      ordner        name/ort des symbolischen links

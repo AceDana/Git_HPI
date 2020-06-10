@@ -1,0 +1,2 @@
+nach einem php-Update muss der apache neugetstartet werden
+--> echter restart

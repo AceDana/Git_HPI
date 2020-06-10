@@ -1,0 +1,35 @@
+192.168.157.83
+
+gpt
+1 t1
+2 t19
+3 t29
+4 t29
+
+mdadm --create /dev/md1 --level=1 --metadata=0.90 --raid-devices=2 /dev/nvme0n1p1 /dev/nvme1n1p1
+mdadm --create /dev/md3 --level=1 --metadata=0.90 --raid-devices=2 /dev/nvme0n1p3 /dev/nvme1n1p3
+mdadm --create /dev/md4 --level=1 --metadata=1.2 --raid-devices=2 /dev/nvme0n1p4 /dev/nvme1n1p4
+
+mdadm --detail --scan >> /etc/mdadm.conf
+
+239
+# <fs>                  <mountpoint>    <type>          <opts>          <dump/pass>
+
+# NOTE: If your BOOT partition is ReiserFS, add the notail option to opts.
+/dev/md1                /boot           vfat            noatime         1 2
+/dev/md3                /               jfs             noatime         0 1
+/dev/md4                /var            jfs             noatime         1 2
+/dev/nvme0n1p2          none            swap            sw              0 0
+/dev/nvme1n1p2          none            swap            sw              0 0
+/dev/cdrom              /mnt/cdrom      auto            noauto,ro       0 0
+#/dev/fd0               /mnt/floppy     auto            noauto          0 0
+
+
+#/dev/md1                /var/www        gfs2            noatime,noauto  1 2
+#192.168.151.8:         /var/www        nfs4            noatime,retry=1,timeo=1 1 2
+
+# glibc 2.2 and above expects tmpfs to be mounted at /dev/shm for 
+# POSIX shared memory (shm_open, shm_unlink).
+# (tmpfs is a dynamically expandable/shrinkable ramdisk, and will
+#  use almost no memory if not populated with files)
+shm                     /dev/shm        tmpfs           nodev,nosuid,noexec     0 0

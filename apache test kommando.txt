@@ -1,0 +1,1 @@
+/usr/sbin/apache2 -d /usr/lib64/apache2 -f /etc/apache2/httpd.conf -t

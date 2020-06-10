@@ -1,0 +1,9 @@
+#auf dem fileserver:
+#!/bin/bash -x
+
+IP_ADDR=$1
+DATE=$2
+
+
+scp dherbeck@192.168.252.100:/root/$IP_ADDR-$DATE.tar
+tar -xvpf $IP_ADDR-$DATE.tar .

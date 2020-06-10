@@ -1,0 +1,10 @@
+DRK fragt, welche die letzte hochgeladene Datei ist
+
+auf hetzner:
+theoretisch im /home/scponly ordner, wird aber auf die 235 gemoved
+
+auf 235:
+im script nachsehen:
+less /usr/local/scripts/drk_import
+
+--> ls -al /var/www/var/datastorage/drk/import/

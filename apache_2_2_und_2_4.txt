@@ -1,0 +1,41 @@
+# Apache 2.2
+<IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+</IfModule>
+
+# Apache  2.4
+<IfModule mod_authz_core.c>
+        Require all denied
+</IfModule>
+
+------------------------------
+
+        # Apache 2.2
+        <IfModule !mod_authz_core.c>
+                Order allow,deny
+                Allow from all
+        </IfModule>
+
+        # Apache  2.4
+        <IfModule mod_authz_core.c>
+                Require all granted
+        </IfModule>
+
+-----------------------------
+                # Apache 2.2
+                <IfModule !mod_authz_core.c>
+                        Order allow,deny
+                        Allow from all
+                </IfModule>
+
+                # Apache  2.4
+                <IfModule mod_authz_core.c>
+                        Require all granted
+                </IfModule>
+                
+-----------------------------                
+
+                <If "%{HTTP_USER_AGENT} == 'BadBot'">
+                        Require all denied
+                </If>

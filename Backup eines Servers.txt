@@ -1,0 +1,35 @@
+Backup eines Servers
+
+auf dem entsprechenden Server:
+sudo und afio installieren
+useradd bup
+visudo --> diese Datei editieren mit Infos vom Backupserver *
+su bup
+ssh-keygen
+nano /home/bup/.ssh/authorized_keys --> id_edcsa.pub key vom Backupserver dort eintragen
+exit
+chmod 600 /home/bup/.ssh/authorized_keys
+mit df -h die Partitionen ansehen
+mount /boot/ --> fürs Level O Backup
+
+* auf dem Backupserver:
+less /usr/local/dirtydump/sudoers
+
+less /root/.ssh/id_ecdsa.pub 
+
+mit ssh bup@[IP] testen
+
+nano /usr/local/dirtydump/etc/dirtydump_252.conf <-- entsprechende IP
+nano /usr/local/dirtydump/etc/dirtydump-single.conf --> Partitionen eintragen
+crontab -l
+dirtydump single conf einmal am anfang ausführen für Level 0 Backup
+/usr/local/dirtydump/dirtydump 0 /backup/backup_files /usr/local/dirtydump/etc/dirtydump-single.conf
+
+----
+*
+User_Alias BACKUP = bup
+Cmnd_Alias BACKUPCMD = /usr/local/mysql/bin/mysqldump, /usr/bin/afio, /usr/bin/find, /bin/sed, /bin/sh, /bin/bash
+BACKUP ALL = NOPASSWD: BACKUPCMD
+----
+ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAAvKJKY3/AUIjaA+lwWGbY13qXFXY9A3XVZmLkAWD/H1EiFVSBjOYpogcEhwg11fVviBQLnJLxM8oBOuVM+ofRVvwB+sXxsIhWiu0ljVSaq0GGg5z+moXA96u1cY7/p1Sp8TNP8DF73BF0zUX+/AoVG3iFCtdB73bLuTrkFlMB6sUuGvw== root@bup
+

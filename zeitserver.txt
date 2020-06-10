@@ -1,0 +1,7 @@
+date
+ntpq -p                                                                                                                                                                                                                                                            
+nano /etc/ntp.conf 
+/etc/init.d/ntpd stop 
+date 05220947        
+/etc/init.d/ntpd start
+ntpq -p

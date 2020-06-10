@@ -1,0 +1,9 @@
+miranda smileys bei miranda ng:
+
+unter Einstellungen - Plugins:
+smileyadd.dll aktivieren
+
+dann unter Customize - Smileys:
+Standard auswählen
+Datei unter public/software/miranda/smileys alleine/smileys/
+am besten facebook_emoji oder google_hangouts

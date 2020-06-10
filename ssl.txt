@@ -1,0 +1,11 @@
+SSLCertificateFile /etc/ssl/apache2/micropayment.de_2018.crt
+SSLCertificateKeyFile /etc/ssl/apache2/micropayment.de_2017.key-nopw
+SSLCACertificateFile /etc/ssl/apache2/IntermediateCA_2018.crt
+
+---
+
+Include /etc/apache2/vhosts.d/ssl_de.config
+
+port 443
+
+        Redirect permanent / "https://paypal.micropayment.de/" 

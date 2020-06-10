@@ -1,0 +1,11 @@
+raid createn
+
+mdadm --create /dev/md1 --level=1 --metadata=0.90 --raid-devices=2 /dev/nvme0n1p1 /dev/nvme1n1p1
+mdadm --create /dev/md3 --level=1 --metadata=0.90 --raid-devices=2 /dev/nvme0n1p3 /dev/nvme1n1p3
+mdadm --create /dev/md4 --level=1 --metadata=1.2 --raid-devices=2 /dev/nvme0n1p4 /dev/nvme1n1p4
+
+mdadm --detail --scan >> /etc/mdadm.conf
+
+
+raid kaputt
+

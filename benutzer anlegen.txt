@@ -1,0 +1,56 @@
+neuen benutzer anlegen:
+
+windows small business server:
+unter benutzer: neuer benutzer 
+unter gruppen: mind. zur gruppe "alle" hinzufügen
+
+Signatur-Infos eintragen* und zur entsprechenden Signatur-Gruppe hinzufügen
+*(siehe /home/dherbeck/wiki/Signaturen.txt)
+
+im postfix anlegen und in der phpmyadmin datenbank eintragen
+und beim podcon admin eintragen
+
+PopCon: 
+POP3-SSL/TLS
+smail.micropayment.de
+[user]@micropayment.de
+[password]
+995
+180
+[user]@micropayment.de/smail.micropayment.de
+
+Single User Mailbox: [user]@micropayment.de
+
+Ordner auf Fileserver:
+cd /home/MP
+mkdir [user]
+chown -R [user]:domänen-benutzer [user]
+chmod 700 [user]
+
+Backup des Fileserver-Ordners anlegen (auf Backupserver):
+nano /usr/local/dirtydump/etc/dirtydump_157.conf
+Partition       192.168.157.242:/home/MP/[user]
+--> Ausnahme für Linux-User: 
+# mp-[PC] [user]
+Partition       192.168.157.XXX:/boot
+Partition       192.168.157.XXX:/
+[ Partition       192.168.157.XXX:/var ]
+
+erstes Level 0 Backup
+nano /usr/local/dirtydump/etc/dirtydump-single.conf
+Partition       192.168.157.242:/home/MP/[user]
+
+/usr/local/dirtydump/dirtydump 0 /backup/backup_files /usr/local/dirtydump/etc/dirtydump-single.conf
+
+Telefonnummer anlegen und Benutzer den Gruppen hinzufügen
+PIN als Kennwort (2x)
+Telefonnummer als Benutzer-ID und Benutzername
+
+Zeiterfassung
+
+Schlüssel
+--> Muster fürs Schlüsselbuch under \\mp-fs01\micropayment\Unternehmenssicherheit\Arbeitsebene\weitere Dokumente - Unternehmen\Schlüsselbuch
+
+im Redmine anlegen 
+
+Yves für Admincenter verantwortlich

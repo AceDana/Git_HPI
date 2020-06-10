@@ -1,0 +1,60 @@
+Device     Boot    Start       End   Sectors  Size Id Type
+/dev/sda1  *        2048    206847    204800  100M 83 Linux
+/dev/sda2         206848  33761279  33554432   16G 83 Linux
+/dev/sda3       33761280  37955583   4194304    2G 82 Linux swap / Solaris
+/dev/sda4       37955584 156301487 118345904 56.4G 83 Linux
+
+boot
+root
+swap
+var
+
+mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+
+
+jfsutils cronie syslog-ng ntp dhcpcd pciutils gentoo-sources
+
+
+vmlinuz-4.19.27-gentoo-r1
+-----
+
+Gerät             Anfang       Ende   Sektoren Größe Typ
+/dev/nvme0n1p1      2048     206847     204800  100M EFI-System
+/dev/nvme0n1p2    206848    2303999    2097152    1G Linux Swap
+/dev/nvme0n1p3   2304000  212019199  209715200  100G Linux-RAID
+/dev/nvme0n1p4 212019200 3907029134 3695009935  1,7T Linux-RAID
+
+mkfs.fat
+
+boot
+swap
+var/log
+root
+
+mount /dev/md4 /mnt/gentoo/
+mount /dev/nvme0n1p1 /mnt/gentoo/boot
+mount /dev/md3 /mnt/gentoo/var/log
+
+mkswap /dev/nvme0n1p2
+mkswap /dev/nvme1n1p2
+swapon /dev/nvme0n1p2
+swapon /dev/nvme1n1p2
+
+----
+
+mount /dev/nvme0n1p4 /mnt/gentoo/
+cd /mnt/gentoo/
+mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+mount /dev/nvme0n1p3 /mnt/gentoo/var/log/
+mount /dev/nvme0n1p1 /mnt/gentoo/boot/   
+chroot /mnt/gentoo /bin/bash
+source /etc/profile
+

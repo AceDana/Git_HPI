@@ -1,0 +1,16 @@
+db commands
+
+#reparieren 
+ESEUTIL /R E00 /L "C:\temp\Mailbox Database" /D "C:\temp\Mailbox Database\Mailbox Database.edb"
+ESEUTIL /P "C:\temp\Mailbox Database\Mailbox Database.edb"
+ESEUTIL /D "C:\temp\Mailbox Database\Mailbox Database.edb"
+eseutil /mh "C:\temp\Mailbox Database\Mailbox Database.edb" | Select-String –pattern state
+#einbinden der reparierten DB
+New-MailboxDatabase -Recovery -Name RDB1 -Server MP-PDC01 -EdbFilePath "C:\temp\Mailbox Database\Mailbox Database.edb" -LogFolderPath "C:\temp\Mailbox Database"
+Mount-Database "RDB1"
+Restore-Mailbox -ID 'Kai Thiemann' -RecoveryDatabase RDB1
+New-MailboxRepairRequest -Mailbox tknoth -CorruptionType ProvisionedFolder,SearchFolder,AggregateCounts,Folderview -Archive
+
+#mailbox size
+Get-MailboxDatabase -Status | Select-Object Name,DatabaseSize,AvailableNewMailboxSpace
+Get-MailboxStatistics –Database “Mailbox DB1”

@@ -1,0 +1,48 @@
+Datenbank switchen 133 zu 30 und umgekehrt.
+
+auf Servern einloggen:
+
+235
+    - ist Datenquelle (cronjobs und apache)
+
+30/133
+    - soll getauscht werden
+    - primäre DB Server
+
+42/36
+    - holen sich Daten von der 30
+
+Schritt 1:
+
+sicherstellen, dass bei einem Neustart die replikation nicht gestartet wird
+
+Schritt 2:
+
+auf 235: cronjobs stoppen (dauert ca 5 Minuten)
+         dann apache stoppen
+
+Schritt 3:
+
+die 30 herunterfahren
+
+dann IP-Adresse von 133 zu 30 zu ändern und network interface neustarten
+
+Schritt 4:
+
+auf 42 und 36: stop slave;
+
+auf der neuen 30 (ehemals 133) den Master resetten
+
+Schritt 5:
+
+auf 42 und 36: slave resetten und starten
+
+Schritt 6:
+
+235: apache und cronjobs wieder starten
+
+Schritt 7:
+
+auf der alten 30: netzwerkkabel ziehen, starten und ip-Adresse zu 133 ändern
+
+Datenbank updaten

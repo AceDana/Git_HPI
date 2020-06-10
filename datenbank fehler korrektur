@@ -1,0 +1,21 @@
+Error 'Duplicate entry '09005104777658-0' for key 'number'' on query. Default database: 'mcall'. Query: 'INSERT INTO `session` (
+`auth`,`mandant_ref`,`created`,`expired`,`callstart`,`callend`,`externid`,`caller`,`number`,`duplicate`,`suffix`,`base`,`profile_ref`,`amount`,`lang`,`request_ref`,`status`,`request_state`,`transferred`
+)
+VALUES(
+'9d5154fe7d2ed8eee4df039ec302cf17',2,'2018-02-04 18:17:29',NULL,NULL,NULL,NULL,'','09005104777658',0,'658','09005104777',1,753,'de',13610647,'wait','na','no'
+)
+
+
+Error 'Duplicate entry 'mcallifn658' for key 'callednumber'' on query. Default database: 'pbcservice'. Query: 'INSERT INTO `session` (
+`auth`,`recall_session_id`,`job_ref`,`server`,`pbc_uid`,`pbctyp_ref`,`payservice_ref`,`dtcreate`,`dthangup`,`dtupdate`,`nrpool_ref`,`mnumbermap_ref`,`pbcpreis_ref`,`payoutart_ref`,`callednumber`,`suffix`,`pbctimeout`,`mandant_ref`,`project_ref`,`account_ref`,`accountalias_ref`,`profil_ref`,`ip`,`phpsid`,`pr
+e_call_cnt`,`after_call_cnt`,`datum`,`zeit`,`max_dauer`,`user_dauer`,`sess_dauer`,`dtmf`,`ateilnehmer`,`status`,`cent`,`cent_user`,`is_flat`,`eurofaktor`,`userparam`,`freeparam`,
+`pp_kampagne_ref`,`wm_kampagne_ref`,`init_currency`,`init_cent`,`country_ref`,`transfer`
+)
+VALUES(
+'9d5154fe7d2ed8eee4df039ec302cf17',NULL,NULL,'','',2,4,1517764649,0,1517764649,23,NULL,20,0,'mcallifn658','658',151,1,9710,17684,8
+118,1,'188.97.181.78','5e6cef2e77460cda91e62771e7d5336f',0,0,'0000-00-00','00:00:00',151,0,0,0,'',0,753,752,0,'1','Guthaben aufladen: Sky198
+
+select * from mcall.session where number='09005104777658';
+select * from pbcservice.session where callednumber='mcallifn658';
+delete from mcall.session where number='09005104777658';
+delete from pbcservice.session where callednumber='mcallifn658';

@@ -1,0 +1,10 @@
+auf Datenbankserver (192.168.252.36) einloggen
+mysql -u root -p --socket=/run/mysqld/mariadb-mp-db.sock
+use fullpbc;
+describe serviceaccessip;
+select account_ref from serviceaccessip where network = '79.125.6.167';
+
+
+beim admincenter einloggen
+
+

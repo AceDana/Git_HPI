@@ -1,0 +1,16 @@
+mount /dev/sda3 /mnt/gentoo
+
+mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+
+mount /dev/sda1 /boot
+
+---
+mount /dev/sda2 /mnt/gentoo/
+mkdir /mnt/gentoo/boot
+mount /dev/sda1 /mnt/gentoo/boot/
+mkdir -p /mnt/gentoo/var/lib/mysql
+mount /dev/sda3 /mnt/gentoo/var/lib/mysql/

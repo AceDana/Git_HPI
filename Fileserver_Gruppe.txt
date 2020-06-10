@@ -1,0 +1,25 @@
+neue Fileserver- bzw. Sicherheitsgruppe anlegen:
+
+auf pdc01:
+SBS: Sicherheitsgruppe anlegen und Benutzer hinzufügen
+
+auf fs01:
+mkdir /home/multicash
+chown -R nobody:multicash /home/multicash
+chmod 770 /home/multicash
+
+in der smb.conf eintragen
+
+auf Backupserver:
+nano /usr/local/dirtydump/etc/dirtydump_157.conf
+- Partition       192.168.157.242:/home/multicash
+
+level 0 Backup einmal ausführen:
+nano /usr/local/dirtydump/etc/dirtydump-single.conf
+- Partition       192.168.157.242:/home/multicash
+
+/usr/local/dirtydump/dirtydump 0 /backup/backup_files /usr/local/dirtydump/etc/dirtydump-single.conf
+
+
+auf fs01:
+Neustart vom samba

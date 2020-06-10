@@ -1,0 +1,52 @@
+FTP installieren
+  emerge pure-ftpd
+  openssl dhparam -out /etc/ssl/private/pure-ftpd-dhparams.pem 2048
+  openssl req -x509 -nodes -newkey rsa:2048 -sha256 -days 3650 -keyout /etc/ssl/private/pure-ftpd.pem -out /etc/ssl/private/pure-ftpd.pem
+  chmod 600 /etc/ssl/private/*.pem
+
+Konfiguration vom Foxpay nehmen und eintragen
+  nano /etc/conf.d/pure-ftpd 
+   
+Pure-PW Zugang
+
+optional
+  groupadd development
+  useradd -g development deploy 
+  less /etc/passwd  --> Group-ID auslesen
+  cd /var/www/
+  cd vhosts/                                                                                                                                                                                         
+  chown -R deploy:development packages.dev.local/                                                                                                                                                    
+  chmod g+w packages.dev.local/                                                                                                                                                                      
+ 
+Vorbereitung
+  /etc/init.d/pure-ftpd start                                                                                                                                                                        
+  rc-update add pure-ftpd default                                                                                                                                                                    
+ 
+User anlegen
+  pure-pw useradd gfranke -u 1012 -g 1012 -d /var/www/                                                                                                                                               
+  pure-pw useradd nwoelk -u 1012 -g 1012 -d /var/www/                                                                                                                                                
+  pure-pw useradd tbergler -u 1012 -g 1012 -d /var/www/                                                                                                                                              
+  pure-pw useradd yberkholz -u 1012 -g 1012 -d /var/www/
+  pure-pw useradd hheyne -u 1012 -g 1012 -d /var/www/
+
+  
+  pure-pw mkdb
+ 
+  /etc/init.d/pure-ftpd restart
+   
+---- 235/239
+pure-pw useradd dherbeck -u 1000 -g 81 -d /var/www/
+pure-pw useradd smeiser -u 1000 -g 81 -d /var/www/
+---- 252.52
+pure-pw useradd smeiser -u 1003 -g 1003 -d /var/www/
+pure-pw useradd hheyne -u 1003 -g 1003 -d /var/www/
+---- 183.173
+pure-pw useradd smeiser -u 81 -g 81 -d /var/www/vhosts/shops/
+---- 157.109
+pure-pw useradd mtebs -u 1012 -g 1012 -d /var/www/
+---- 183.150
+pure-pw useradd mtebs -u 1008 -g 81 -d /var/www/vhosts/ews.mp.local
+---- 109
+pure-pw useradd rkuehn -u 1012 -g 1012 -d /var/www/vhosts/support.micropayment.de.dev.local/production/
+pure-pw useradd ckessel -u 1012 -g 1012 -d /var/www/vhosts/support.micropayment.de.dev.local/production/
+

@@ -1,0 +1,19 @@
+jabber neustart:
+192.168.252.41
+vllt unter /var/log/messages mit > bis zum Ende und dann mit
+?jabberd nach Problemen suchen
+
+mit pstree -pn nachsehen, ob c2s, s2s, router und sm laufen
+/etc/init.d/jabberd stop 
+
+wenn bei pstree -pn diese vier dienste alle weg sind, ist das
+problem woanders, aber wenn etwas nicht verschwindet/sich also
+aufgehängt hat, dann mit
+kill -9 [pid] --> pid steht hinter dem dienst
+
+nochmal 
+/etc/init.d/jabberd stop 
+
+nochmal mit pstree nachsehen, ob wirklich weg 
+
+/etc/init.d/jabberd start

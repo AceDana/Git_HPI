@@ -1,0 +1,8 @@
+Nagios Service ändern
+
+cd /etc/nagios/servers
+ls
+nano [servername]
+
+/etc/init.d/nagios restart
+/etc/init.d/nagios_grapher restart

@@ -1,0 +1,26 @@
+tripwire --check
+---
+mktwpol.sh > /etc/tripwire/twpol.txt
+twadmin --create-polfile -S /etc/tripwire/site.key /etc/tripwire/twpol.txt
+tripwire --init
+tripwire --check
+
+---
+tripwire --update -r /var/lib/tripwire/report/[rechnername]
+
+/etc/cron.daily/tripwire
+
+----
+emerge --update --newuse --deep @world
+----
+ * 
+ * Installation and setup of tripwire ...
+ *  - Run: `twsetup.sh`
+ * 
+ * Maintenance of tripwire as packages are added and/or deleted ...
+ *  - Run: `mktwpol.sh -u` to update tripwire policy and database
+ * 
+ 
+ 
+  `tripwire --test  --email fneudoerfl@micropayment.de`
+ `tripwire --check --email-report`

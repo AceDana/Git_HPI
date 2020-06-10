@@ -1,0 +1,2 @@
+ 
+msiexec /a c:\testfile.msi /qb TARGETDIR=c:\temp\test

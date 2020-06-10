@@ -1,0 +1,18 @@
+DRK Zugang hinzufügen
+
+auf dem hetzner einloggen
+
+useradd wto -d /home/scponly// -s /usr/sbin/scponlyc -g 407
+passwd wto
+
+zum überprüfen:
+less /etc/passwd
+
+
+in der Email:
+
+Server-IP: 188.40.58.74
+Protokoll: FTPS Explizit
+
+Benutzername: wto
+Passwort: XXXXXX

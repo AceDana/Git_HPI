@@ -1,0 +1,20 @@
+neuer Mitarbeiter:
+
+Berechtigungsbogen
+Email
+Schlüssel
+Zeiterfassung
+Fileserver
+Redmine
+Admincenter
+gitlab
+Telefon
+
+
+auf PC:
+Mail
+slack
+keepass
+Zeiterfassung
+netphone client
+netzwerklaufwerk

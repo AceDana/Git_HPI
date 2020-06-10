@@ -1,0 +1,8 @@
+ansehen der queue
+
+mailq
+
+
+löschen der alten queued messages
+
+postsuper -d ALL deferred

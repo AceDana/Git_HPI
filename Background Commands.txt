@@ -1,0 +1,9 @@
+Background Commands
+//Command im Hintergrund ausführen. Output wird in nohup.out geschrieben
+nohup [command] &
+
+//Hintergrundprozesse anzeigen
+jobs
+
+//Prozess Nummer 1 in den Vordergrund bringen 
+fg %1

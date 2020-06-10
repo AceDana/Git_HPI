@@ -1,0 +1,5 @@
+equery --quiet list dev-qt/* > qt.txt
+sed -i 's/-4[\.|\d].*/:4/' qt.txt
+sed -i 's/-5[\.|\d].*/:5/' qt.txt
+
+emerge -pv $(< qt.txt)

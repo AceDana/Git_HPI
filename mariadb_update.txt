@@ -1,0 +1,33 @@
+mv /etc/mariadb-mp-mail/my.cnf /etc/mariadb-mp-mail/my.cnf_old
+[Update]
+cp -rp /etc/mysql/mariadb.d /etc/mariadb-mp-mail
+cp /etc/mysql/my.cnf etc/mariadb-mp-mail/
+
+nano my.cnf
+--> /etc/mariadb-mp-mail/mariadb.d
+
+nano /etc/mariadb-sepa/mariadb.d/50-distro-server.cnf
+--> 
+port                                            = 3307
+socket                                          = /var/run/mysqld/mariadb-mp-owncloud.sock
+pid-file                                        = /var/run/mysqld/mariadb-mp-owncloud.pid
+log-error                                       = /usr/local/mariadb-data/data-mp-owncloud/mysqld.err
+basedir                                         = /usr
+datadir                                         = /usr/local/mariadb-data/data-mp-owncloud
+lc_messages_dir                                 = /usr/share/mariadb
+
+#bind-address
+
+skip-external-locking
+
+skip-slave-start
+
+server-id = 120
+
+innodb_log_files_in_group=3
+innodb_log_file_size = 16M
+
+--
+/etc/init.d/mysql restart
+
+mysql_upgrade -u root -p --socket=/var/run/mysqld/mariadb-sepa.sock

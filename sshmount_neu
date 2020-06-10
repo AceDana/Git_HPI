@@ -1,0 +1,12 @@
+sshfs dherbeck@192.168.157.109:/home/dherbeck/ /home/dherbeck/mnt/ -o uid=1001,gid=1001,ssh_command='sshpass -f /home/dherbeck/.sshpasswd_dev09 ssh'
+
+
+cat /etc/passwd
+--> uid und gid 
+
+fusermount -u mnt/
+---
+ssh mount
+
+
+sshfs#dherbeck@192.168.157.109:/home/dherbeck/  /home/dherbeck/mnt      fuse    uid=1001,gid=1001,ssh_command='sshpass -f /home/dherbeck/.sshpasswd_dev09 ssh'  1 2

@@ -1,0 +1,17 @@
+DRK (scponly):
+89.246.238.13 (mail01.drk.de)
+
+WHH (whh_rw):
+80.149.89.51
+78.94.36.190 (b2b-78-94-36-190.unitymedia.biz)
+78.94.36.188 (b2b-78-94-36-188.unitymedia.biz)
+
+IGELB (scp_ei):
+80.237.156.75 (ds80-237-156-75.dedicated.hosteurope.de)
+
+188.40.58.74 Hetzner
+109.75.181.60  Thomas Krenn
+
+---
+217.73.36.33   Telecash
+

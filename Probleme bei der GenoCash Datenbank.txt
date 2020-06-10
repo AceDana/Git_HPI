@@ -1,0 +1,11 @@
+wenn es Probleme bei der GenoCash Datenbank gibt:
+
+DB-Dienst auf dem pdc02 herunterfahren
+
+auf dem fileserver:
+
+lsof | grep OMICER
+
+--> wenn es noch einen Prozess gibt, der die Datenbank noch benutzt --> kill
+
+Neustart der Datenbank

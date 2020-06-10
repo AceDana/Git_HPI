@@ -1,0 +1,42 @@
+    Alias /gfx  /var/www/fullpbc.sws.local/webapps/controlcenter/resources
+    Alias /lastschrift2 /var/www/fullpbc.sws.local/webapps/payment/lastschrift
+    Alias /ebank2pay      /var/www/fullpbc.sws.local/webapps/payment/sofort
+    Alias /global       /var/www/fullpbc.sws.local/webapps/payment/global
+    Alias /error        /var/www/fullpbc.sws.local/webapps/payment/error
+
+
+  <DirectoryMatch "^/var/www/fullpbc.sws.local/webapps/[controlcenter/resources|payment/lastschrift|payment/sofort|payment/global|payment/error]">
+
+                Options FollowSymLinks
+
+                AllowOverride All
+
+                # Apache  2.4
+                <IfModule mod_authz_core.c>
+                        <RequireAll>
+                          Require ip 192.168.157. 192.168.251. 192.168.253.
+
+                          include /etc/apache2/vhosts.d/defense.config
+#                         Require all granted
+                        </RequireAll>
+                </IfModule>
+
+  </DirectoryMatch>
+
+------
+
+•	amazonpay 
+•	call2pay --> c2pay      
+•	debit     
+•	foxpay -->   fpay
+•	handypay  
+•	paydirekt 
+•	paypal -->   ppal
+•	paysafecard >psc        
+•	prepayment ->ppayment   
+•	sofort    
+
+cp 12_c2pay.micropayment.de.dev.local_vhost.conf 19_ppal.micropayment.de.dev.local_vhost.conf
+cp 12_c2pay.micropayment.de.dev.local_ssl_vhost.conf 19_ppal.micropayment.de.dev.local_ssl_vhost.conf 
+cp 12_c2pay.micropayment.ch.dev.local_vhost.conf 19_ppal.micropayment.ch.dev.local_vhost.conf 
+cp 12_c2pay.micropayment.ch.dev.local_ssl_vhost.conf 19_ppal.micropayment.ch.dev.local_ssl_vhost.conf

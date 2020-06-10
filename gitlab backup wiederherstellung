@@ -1,0 +1,20 @@
+gitlab backup wiederherstellung
+(evtl. nachlesen auf https://docs.gitlab.com/ce/raketasks/backup_restore.html#restore-for-omnibus-installations)
+
+backup pfad:
+/opt/gitlabhq-10.1/tmp/backups
+
+
+Stop the processes that are connected to the database. Leave the rest of GitLab running:
+
+gitlab-ctl stop unicorn
+gitlab-ctl stop sidekiq
+# Verify
+gitlab-ctl status
+
+
+gitlab-rake gitlab:backup:restore BACKUP=1493107454_2017_04_25_9.1.0
+--> NICHT selber Tabellen aus der Datenbank löschen!
+
+
+neustart von gitlab

@@ -1,0 +1,19 @@
+192.168.252.36
+mysqldump -u root -p fullpbc session > session_dump.sql --lock-tables=false --socket=/var/run/mysqld/mariadb-mp-db.sock
+
+
+192.168.157.107
+mysqldump -u root -p magento > magento_dump.sql --lock-tables=false --socket=/var/run/mysqld/mariadb.sock
+
+192.168.157.42
+mysqldump -u root -p fullpbc session > session_dump.sql --lock-tables=false --socket=/var/run/mysqld/mysqld_copy.sock
+
+
+dump wieder in DB einspielen:
+mysql -u root -p -D fullpbc < session_dump.sql
+
+nach -D kommt der Datenbankname
+
+beim Columnstore:
+mcsmysql -D fullpbc < session_dump.sql
+

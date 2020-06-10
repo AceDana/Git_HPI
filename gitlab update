@@ -1,0 +1,56 @@
+auf
+https://gitlab.awesome-it.de/overlays/gitlab
+
+datei downloaden und auf server kopieren
+scp Downloads/gitlab-master.tar.bz2 dherbeck@192.168.157.109:/home/dherbeck/
+
+auf dem server im homeverszeichnis entpacken
+tar -xvpf gitlab-master.tar.bz2
+
+altes overlay löschen
+rm -rf /usr/local/portage/overlay/*
+
+dateien verschieben
+mv gitlab-master/* /usr/local/portage/overlay/
+
+dann mit emerge -pv gitlabhq installieren
+
+---
+gem install bundler
+
+Remember to run generator to generate sample file and include mousetrap-rails with Rails Asset Pipeline
+
+    $ rails generate mousetrap:install 
+    
+    
+    Alter table lfs_file_locks DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+
+----
+ * If this is a new installation, proceed with the following steps:
+ * 
+ *   1. Copy /etc/gitlabhq-11.9/gitlab.yml.example to /etc/gitlabhq-11.9/gitlab.yml
+ *      and edit this file in order to configure your GitLab settings.
+ * 
+ *   2. Copy /etc/gitlabhq-11.9/database.yml.* to /etc/gitlabhq-11.9/database.yml
+ *      and edit this file in order to configure your database settings
+ *      for "production" environment.
+ * 
+ *   3. Copy /etc/gitlabhq-11.9/initializers/rack_attack.rb.example
+ *      to /etc/gitlabhq-11.9/initializers/rack_attack.rb
+ * 
+ *   4. Copy /etc/gitlabhq-11.9/resque.yml.example to /etc/gitlabhq-11.9/resque.yml
+ *      and edit this file in order to configure your Redis settings
+ *      for "production" environment.
+ * 
+ *   4a. Copy /etc/gitlabhq-11.9/unicorn.rb.example to /etc/gitlabhq-11.9/unicorn.rb
+ * 
+ *   5. If this is a new installation, create a database for your GitLab instance.
+ *   6. Execute the following command to finalize your setup:
+ *          emerge --config "=www-apps/gitlabhq-11.9.4"
+ *      Note: Do not forget to start Redis server.
+ * 
+ * To update an existing instance, run the following command and choose upgrading when prompted:
+ *     emerge --config "=www-apps/gitlabhq-11.9.4"
+ * 
+ * Important: Do not remove the earlier version prior migration!

@@ -1,0 +1,5 @@
+perl update:
+emerge -pv perl-cleaner
+emerge -pvO perl
+
+perl-cleaner -p -v --all 

@@ -1,0 +1,13 @@
+apcu cache
+
+ssh dherbeck@193.159.183.235 
+su -
+cd /etc/php/apache2-php5.6/ext-active/
+nano apcu.ini 
+--> cache größe ändern
+/etc/init.d/apache2 configtest
+/etc/init.d/apache2 restart   
+               
+
+dann überprüfen
+http://193.159.183.235/system/apcu.php

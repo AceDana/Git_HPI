@@ -1,0 +1,22 @@
+datenbank kopieren/updaten
+
+ls /dev/sd[tab2x]
+less /etc/fstab
+ls /mnt/[tab2x]
+mount /dev/sdc1 /mnt/usb/
+ls /mnt/usb/
+df -h
+cd /mnt/usb/
+rm -rf *
+cd /etc/ --> nach mariadb/mysql sehen; hier: mariadb-mp-db
+pstree -a --> welche conf datei: /etc/mariadb-mp-db/my.cnf
+less mariadb-mp-db/my.cnf
+ --> datadir         = /var/lib/mysql/micropayment-mariadb/
+
+mysql -u root -p --socket=/run/mysqld/mariadb-mp-db.sock
+show slave status \G
+quit
+
+/etc/init.d/mariadb-mp-db stop
+cd /mnt/usb
+cp -pr /var/lib/mysql/micropayment-mariadb .

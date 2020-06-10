@@ -1,0 +1,1 @@
+find magento-test.micropayment.de/ -name .htaccess

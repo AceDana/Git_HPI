@@ -1,0 +1,3 @@
+wen apache2 nicht stoppt:
+
+rm /var/run/openrc/started/apache2

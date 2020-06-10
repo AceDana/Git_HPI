@@ -1,0 +1,11 @@
+slave replikation:
+
+show slave status \G
+
+ast_IO_Error: Got fatal error 1236 from master when reading data from binary log: 'Client requested master to start replication from impossible position; the first event 'mysqld-bin.000179' at 366904146, the last event read from 'mysqld-bin.000179' at 4, the last byte read from 'mysqld-bin.000179' at 4.'
+
+stop slave;
+change master to master_log_file="mysqld-bin.000180",master_log_pos=4;
+
+show slave status \G
+start slave;

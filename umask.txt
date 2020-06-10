@@ -1,0 +1,9 @@
+default 666 --> rw.rw.rw
+i want für dateien: rw.rw.r --> 664
+und für verzeichnisse: rwx.rwx.rx --> 775
+
+umask 022 bedeutet --> 644
+
+
+4 2 1
+r w x

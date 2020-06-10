@@ -1,0 +1,9 @@
+python update:
+
+eselect python list --> gibt die vorhandenen python versionen aus
+eselect python set [zahl]
+
+python 3.3 deinstallieren
+
+emerge portage gentoolkit
+emerge python:[versionsnummer]

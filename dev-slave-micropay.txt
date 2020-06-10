@@ -1,0 +1,9 @@
+pstree -al
+mysql -p -u root --socket=/var/run/mysqld/mysqld_repl.sock
+show slave status \G
+stop slave;
+set global sql_slave_skip_counter = 1;
+show slave status \G
+start slave;
+show processlist;
+show slave status \G

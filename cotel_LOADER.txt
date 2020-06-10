@@ -1,0 +1,9 @@
+cd /home/cotel/MCCWIN/PRG/
+ls
+ls -al
+rm LOADER.EXE 
+cp /home/public/Software/cotel/LOADER.EXE .
+ls -al
+chown coteluser:cotel LOADER.EXE 
+chmod 770 LOADER.EXE 
+cd /home/MP/

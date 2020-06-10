@@ -1,0 +1,17 @@
+120
+ncurses procps --> mariadb
+
+36
+ncurses procps
+
+
+~133
+#30
+
+
+
+sys-apps/portage -rsync-verify
+
+
+ * gcc-config x86_64-pc-linux-gnu-7.3.0
+ * source /etc/profile

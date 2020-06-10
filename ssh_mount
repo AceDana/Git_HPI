@@ -1,0 +1,13 @@
+für root:
+sshfs dherbeck@192.168.157.109:/home/dherbeck/ /mnt/ssh/ -o allow_other,ssh_command='sshpass -f /etc/ssh/sshpasswd ssh'
+
+für user: 
+sshfs dherbeck@192.168.157.109:/home/dherbeck/ /mnt/ssh/ -o ssh_command='sshpass -f /home/yberkholz/sshpasswd ssh'
+
+---
+in der sshpasswd Datei steht das Passwort
+
+----
+umount für user mit:
+
+fusermount -u /path/to/local/sshfs/mount

@@ -1,0 +1,50 @@
+owncloud webseite:
+als karlheinz anmelden und benutzer anlegen
+
+
+auf dem fileserver:
+
+cd /etc/local.d/
+less owncloud.start 
+mkdir /home/foxpay
+cd /etc/davfs2/
+cp mstadelmann.conf foxpay.conf
+cp mstadelmann.secrets foxpay.secrets
+nano foxpay.conf 
+nano foxpay.secrets 
+---
+Foxpay gruppe auf domaincontroller anlegen
+---
+getent group foxpay
+nano foxpay.conf 
+nano /etc/local.d/owncloud.start 
+getent passwd jspengler
+nano /etc/local.d/owncloud.start 
+nano /etc/local.d/owncloud.stop
+chown jspengler:foxpay /home/foxpay
+nano /etc/samba/smb.conf
+---
+Cotel Laptop ausschalten und GenoCash DB auf pdc02 stoppen (wegen Samba-Neustart)
+---
+/etc/init.d/samba restart
+less /etc/local.d/owncloud.start 
+mount -t davfs -o uid=11328,gid=12149,dir_mode=777,file_mode=666,rw,exec,suid,grpid,conf=/etc/davfs2/foxpay.conf https://hades.micropayment.de/owncloud/remote.php/webdav/ /home/foxpay
+df -h
+touch /home/foxpay/test
+
+
+----------
+nobody:x:65534:65534
+gid 13154
+
+[marketing]
+        comment = Marketing Owncloud
+        path = /home/marketing
+        valid users = @MP+marketing
+        write list = @MP+marketing
+        force group = MP+marketing
+        create mask = 660
+        directory mask = 770
+        writeable = Yes
+        browseable = no
+        vfs objects = full_audit

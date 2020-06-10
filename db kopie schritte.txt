@@ -1,0 +1,24 @@
+36 stoppen
+ssd einbauen
+starten
+/etc/init.d/mariadb-mp-db stop
+mounten: mount /dev/sd[] /mnt/usb
+db kopieren: cp -rp /var/lib/mysql/micropayment-mariadb .
+evtl mit watch du -sh /mnt/usb verlauf ansehen
+
+
+danach 36 wieder ausschalten
+ssd entfernen 
+anschalten
+bei mysql amelden und slave starten
+
+133/42/... ausschalten
+ssd einbauen
+starten
+mounten
+zielordner leeren
+db kopieren: cp -rp /mnt/usb/micropayment-mariadb/* /var/lib/mysql/micropayment-mariadb/
+
+---
+
+usr/local/mariadb-data/data235/

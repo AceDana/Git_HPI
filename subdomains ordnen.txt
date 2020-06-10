@@ -1,0 +1,15 @@
+cd /etc/apache2/vhosts.d/
+nano [...]
+
+
+
+cd /var/www/
+cp -pr vorkasse.micropayment.de/* /home/hosts/fullpbc.sws.local/subdomains/vorkasse/
+
+
+/etc/init.d/apache2 configtest
+/etc/init.d/apache2 graceful
+
+rm -rf vorkasse.micropayment.de
+
+online nachsehen

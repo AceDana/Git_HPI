@@ -1,0 +1,14 @@
+webadmin für email alias
+mit dherbeck@micropayment.de
+und pwd vom keepass kopieren
+
+angelegter alias muss im exchange server als neuer kontakt eingetragen
+werden 
+--> remote desktop verbindung zu 192.168.157.175 --> mit windows login daten anmelden
+--> Microsoft exchange (nicht shell)
+--> Empfängerkonfiguration --> E-Mail-Kontakt --> neuer Kontakt
+--> Email Adresse bei externer email einfügen
+
+
+oder Exchange Shell mit Komando (am bsp bank@micropayment.de):
+New-MailContact -ExternalEmailAddress 'SMTP:bank@micropayment.de' -Name 'bank' -Alias 'bank' -FirstName '' -Initials '' -LastName ''

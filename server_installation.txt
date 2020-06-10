@@ -1,0 +1,32 @@
+/dev/md1                /boot           jfs             noauto,noatime  1 2
+/dev/md2                /               jfs             noatime         0 1
+/dev/sda3               none            swap            sw              0 0
+/dev/sdb3               none            swap            sw              0 0
+/dev/md4                /var            jfs             noatime         1 2
+
+
+    1  fdisk /dev/sda
+    2  fdisk /dev/sdb
+    3  mkfs.jfs /dev/sda1
+    4  mkfs.jfs /dev/sda3
+    5  mkfs.jfs /dev/sda4
+    6  mkfs.jfs /dev/sdb1
+    7  mkfs.jfs /dev/sdb3
+    8  mkfs.jfs /dev/sdb4
+    9  mkswap /dev/sda2
+   10  mkswap /dev/sdb2
+   11  swapon /dev/sda2
+   12  swapon /dev/sdb2
+   13  mount /dev/sda3 /mnt/gentoo/
+   14  date
+   15  cd /mnt/gentoo/
+   16  links https://www.gentoo.org/downloads/mirrors/
+   17  tar -xvpf stage3-amd64-20181129T214502Z.tar.xz --xattrs-include='*.*' --numeric-owner
+   18  nano /mnt/gentoo/etc/portage/make.conf 
+   19  cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+   25  chroot /mnt/gentoo /bin/bash

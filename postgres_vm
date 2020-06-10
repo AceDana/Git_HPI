@@ -1,0 +1,7 @@
+boot /dev/sda1  100M
+swap /dev/sda2  1G
+root /dev/sda3  Rest
+
+vmlinuz-4.19.44-gentoo
+
+emerge --config =dev-db/postgresql-11.3

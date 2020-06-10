@@ -1,0 +1,33 @@
+http micropayment.de modified
+
+Änderung der Webseite
+
+Prüfung:
+  349  cd /etc/nagios/objects/
+  350  less commands.cfg
+  383  cd servers/
+  384  ls
+  385  nano mp-wb01-m.cfg 
+  386  /etc/init.d/nagios restart
+  387  cd ..
+  388  less serviceext/mp_wb01_m.cfg 
+  389  /usr/lib/nagios/plugins//check_http -H www.micropayment.de  -u "/?lang=de" -S -m 90000:120000 -s "Als Full-Service Payment Provider sind wir Dienstleister f<C3><BC>r Online-Bezahlverfahren. Wir betrachten elektronische Bezahlprozesse aus allen Sichtweisen: H<C3><A4>ndler-, kunden und branchenorientiert.  Neue Payment-L<C3><B6>sungen f<C3><BC>r den E-Commerce sind genauso unser Anspruch wie perfekte Online-Spendensysteme."
+  390  less /var/log/messages 
+  391  /usr/lib/nagios/plugins//check_http -H www.micropayment.de  -u "/?lang=de" -S -m 90000:120000 -s "Als Full-Service Payment Provider sind wir Dienstleister f<C3><BC>r Online-Bezahlverfahren. Wir betrachten elektronische Bezahlprozesse aus allen Sichtweisen: H<C3><A4>ndler-, kunden und branchenorientiert.  Neue Payment-L<C3><B6>sungen f<C3><BC>r den E-Commerce sind genauso unser Anspruch wie perfekte Online-Spendensysteme."
+  392  /usr/lib/nagios/plugins/check_http -H www.micropayment.de  -u "/index.php?lang=de" -S -m 90000:120000 -s "Als Full-Service Payment Provider sind wir Dienstleister f<C3><BC>r Online-Bezahlverfahren. Wir betrachten elektronische Bezahlprozesse aus allen Sichtweisen: H<C3><A4>ndler-, kunden und branchenorientiert.  Neue Payment-L<C3><B6>sungen f<C3><BC>r den E-Commerce sind genauso unser Anspruch wie perfekte Online-Spendensysteme."
+  393  /usr/lib/nagios/plugins/check_http 
+  394  links https://www.micropayment.de:443/index.php?lang=de
+  395  cd objects/
+  396  nano commands.cfg
+  397  /etc/init.d/nagios restart
+  398  /usr/lib/nagios/plugins/check_http -H www.micropayment.de  -u "/index.php?lang=de" -S -m 90000:120000 -s "Als Full-Service Payment Provider sind wir Dienstleister"
+  399  exit
+  400  cd /etc/nagios/servers/
+  401  nano mp-wb01-m.cfg 
+  402  cd ..
+  403  cd objects/
+  404  nano commands.cfg 
+  405  /etc/init.d/nagios restart
+  406  /usr/lib/nagios/plugins/check_http -H www.micropayment.de  -u "/index.php?lang=de" -S -m 120543 -s "Als Full-Service Payment Provider sind wir Dienstleister"
+  407  /usr/lib/nagios/plugins/check_http -H www.micropayment.de  -u "/index.php?lang=de" -S -m 120543 -s "Als Full-Service Payment Provider sind wir Dienstleister"
+  408  exit

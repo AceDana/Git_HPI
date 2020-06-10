@@ -1,0 +1,11 @@
+einloggen auf 193.159.183.235
+
+cd /usr/local/scripts/
+less modsec.log
+?Warning
+
+evtl grep in /var/www/modsecurity/[audit.log]
+evtl grep in /var/log/audit/[audit.log] ausführen --> 
+
+cp modsec.log modsec.white
+

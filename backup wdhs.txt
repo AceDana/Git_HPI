@@ -1,0 +1,33 @@
+cd /backup/backup_files/
+ls
+cp dirtybackup-0-20150905/192.168.157.242-_home_public.0.20150905211903.afio.gz /root
+cp dirtybackup-1-20161206/192.168.157.242-_home_public.1.20161206204841.afio.gz /root
+cd /root
+gzip -d 192.168.157.242-_home_public.*
+mkdir public
+cd public/
+afio -ivZ ../192.168.157.242-_home_public.0.20150905211903.afio
+afio -ivZ ../192.168.157.242-_home_public.1.20161206204841.afio
+cd ..
+
+----
+spezifischer Ordner
+afio -ivZy /var* ../192.168.157.106-_.0.20180329204421.afio
+
+
+----
+scp -r Dokumente/Spendenorganisationen/* root@192.168.157.242:/home/MP/kthiemann/Dokumente/Spendenorganisationen/
+
+
+--- entweder mit usb-stick
+mount /dev/sdc1 /mnt/usb
+ls /mnt/usb
+tar -cvpf /mnt/usb/fs_p.tar ./public
+umount /mnt/usb
+
+--- oder vorher tar und dann direkt vom fileserver 
+scp fs_p.tar root@192.168.157.242:/root/
+tar -xvpf fs_p.tar .
+
+
+dann die Rechte anpassen

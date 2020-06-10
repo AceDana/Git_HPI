@@ -1,0 +1,24 @@
+für archiv-db/snmp config
+
+snmp.conf von .30 kopieren
+cd /etc/snmp/
+scp dherbeck@192.168.252.30:/home/dherbeck/snmpd.conf .
+
+user erstellen
+net-snmp-config --create-snmpv3-user -A YYdkew232icdde -X EExvkwmcx28x2k -ro sllcww77sKK
+
+snmpd starten
+/etc/init.d/snmpd start
+
+lspci --> MegaRaid LSI --> tools dafür installieren
+emerge -pv storcli
+
+check_3ware skript vom fileserver kopieren
+
+und testen
+cd /usr/local/scripts/
+./check_3ware 0 0
+
+
+danach auf nagios:
+unter /etc/nagios/servers den server anlegen

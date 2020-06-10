@@ -1,0 +1,9 @@
+als erstes: usb stick verbinden
+
+als root:
+
+/etc/init.d/dmcrypt start
+
+als user:
+
+mount /home/dherbeck/adminvault

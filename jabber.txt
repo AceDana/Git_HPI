@@ -1,0 +1,3 @@
+ejabberdctl register [username] mp.local [passwort]
+
+

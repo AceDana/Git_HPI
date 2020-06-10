@@ -1,0 +1,8 @@
+# Nmap 7.60 scan initiated Thu Feb 22 15:47:07 2018 as: nmap -T4 --open -oG nmap.txt 193.159.183.70,71,75,20
+Host: 193.159.183.20 ()	Status: Up
+Host: 193.159.183.20 ()	Ports: 22/open/tcp//ssh///, 873/open/tcp//rsync///	Ignored State: closed (998)
+Host: 193.159.183.70 ()	Status: Up
+Host: 193.159.183.70 ()	Ports: 443/open/tcp//https///	Ignored State: closed (999)
+Host: 193.159.183.71 ()	Status: Up
+Host: 193.159.183.71 ()	Ports: 443/open/tcp//https///	Ignored State: closed (999)
+# Nmap done at Thu Feb 22 15:47:12 2018 -- 4 IP addresses (4 hosts up) scanned in 4.08 seconds

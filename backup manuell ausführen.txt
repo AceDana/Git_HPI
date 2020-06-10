@@ -1,0 +1,48 @@
+cd /usr/local/dirtydump/etc/
+nano dirtydump-single.conf
+--> editieren/betroffene partitionen hinzufügen
+
+[crontab -l]
+/usr/local/dirtydump/dirtydump 1 /backup/backup_files /usr/local/dirtydump/etc/dirtydump-single.conf
+ 
+
+
+ssh bup@193.159.183.235
+ssh -vvv bup@193.159.183.235
+nano dirtydump_183.conf
+ssh bup@192.168.252.33
+ssh bup@192.168.252.34
+ssh bup@192.168.252.50
+less /root/.ssh/id_rsa.pub
+
+beim anderen server anmelden:
+su bup
+cd
+cd .ssh/
+nano authorized_keys
+key einfügen
+
+ssh bup@192.168.252.33
+less /root/.ssh/id_rsa.pub
+ssh bup@192.168.252.34
+nano dirtydump-single.conf
+ssh bup@192.168.252.50
+ssh root@192.168.252.50
+/usr/local/dirtydump/dirtydump 0 /backup/backup_files /usr/local/dirtydump/etc/dirtydump-single.conf
+ssh root@192.168.252.50
+cd ..
+ls
+less sudoers.gentoo
+ssh root@192.168.252.50
+/usr/local/dirtydump/dirtydump 0 /backup/backup_files /usr/local/dirtydump/etc/dirtydump-single.conf
+cd /usr/local/scripts/
+ls
+less check_snmp_3w
+cp check_snmp_3w check_backup
+nano check_backup
+ls -al
+./check_backup
+ping 193.159.183.210
+cd /root/.ssh/id_rsa.pub
+less /root/.ssh/id_rsa.pub
+ssh bup@193.159.183.210

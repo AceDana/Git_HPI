@@ -1,0 +1,40 @@
+db fehler auf 42:
+
+Last_Errno: 1062
+Last_Error: Error 'Duplicate entry '09005104666118-0' for key 'number'' on query. Default database: 'mcall'. Query: 'INSERT INTO `session` (
+                `auth`,`mandant_ref`,`created`,`expired`,`callstart`,`callend`,`externid`,`caller`,`number`,`duplicate`,`suffix`,`base`,`profile_ref`,`amount`,`lang`,`request_ref`,`status`,`request_state`,`transferred`)
+                VALUES(
+                    '7d3ce5dc00fe6e41bb12466035cf09bf',2,'2019-07-13 15:48:01',NULL,NULL,NULL,NULL,'','09005104666118',0,'118','09005104666',1,1999,'de',14302418,'wait','na','no')'
+-----
+
+Could not execute Delete_rows_v1 event on table fullpbc.sessioncluster__monitor
+
+
+Could not execute Update_rows_v1 event on table tokensearch.token__info_hash
+
+Could not execute Update_rows_v1 event on table hp3.transaction-transfer
+
+Could not execute Update_rows_v1 event on table fullpbc.eb2psession
+
+
+ Cannot add or update a child row: a foreign key constraint fails (`mcp_oia`.`event`, CONSTRAINT `eventitem` FOREIGN
+ KEY (`item_ref`) REFERENCES `item` (`item_id`) ON DELETE NO ACTION ON UPDATE NO ACTION) Error_code: 1452
+
+----
+
+Last_SQL_Error: Error 'Duplicate entry '09005104666118-0' for key 'number'' on query. Default database: 'mcall'. Query: 'INSERT INTO `session` (
+                                                `auth`,`mandant_ref`,`created`,`expired`,`callstart`,`callend`,`externid`,`caller`,`number`,`duplicate`,`suffix`,`base`,`profile_ref`,`amount`,`lang`,`request_ref`,`status`,`request_state`,`transferred`
+                                        )
+                                        VALUES(
+                                                '0f9c0e340a6d7ccbe86a2f8131333d40',2,'2019-07-19 00:01:24',NULL,NULL,NULL,NULL,'','09005104666118',0,'118','09005104666',1,1999,'de',14310151,'wait','na','no'
+                                        )'
+----
+
+               Last_SQL_Error: Error 'Duplicate entry '09005104666118-0' for key 'number'' on query. Default database: 'mcall'. Query: 'INSERT INTO `session` (
+                                                `auth`,`mandant_ref`,`created`,`expired`,`callstart`,`callend`,`externid`,`caller`,`number`,`duplicate`,`suffix`,`base`,`profile_ref`,`amount`,`lang`,`request_ref`,`status`,`request_state`,`transferred`
+                                        )
+                                        VALUES(
+                                                'bb11a0ab1919152da9325d82ea226260',2,'2019-07-22 08:47:31',NULL,NULL,NULL,NULL,'','09005104666118',0,'118','09005104666',1,1999,'de',14315038,'wait','na','no'
+                                        )'
+                                        
+---

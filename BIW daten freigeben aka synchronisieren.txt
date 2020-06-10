@@ -1,0 +1,9 @@
+192.168.157.242 (Fileserver)
+
+
+su biwsync
+
+cd
+cd scripts
+
+./abrechnung.sh (evtl. vorher abrechnung.batch anpassen)

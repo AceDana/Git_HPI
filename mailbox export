@@ -1,0 +1,16 @@
+Exchange Management Shell --> Systemmodule importieren öffnen
+
+
+New-ManagementRoleAssignment –Role „Mailbox Import Export“ –User MP\dherbeck
+
+USB Stick als Freigabe einbinden (z.B. als D)
+
+Export
+New-MailboxExportRequest -Mailbox tbergler -FilePath \\mp-pdc01.mp.local\D\tbergler.pst
+Get-MailboxExportRequest
+
+Import
+New-MailboxImportRequest -Mailbox tbergler -FilePath \\mp-pdc01.mp.local\D\tbergler.pst
+Get-MailboxImportRequest
+
+

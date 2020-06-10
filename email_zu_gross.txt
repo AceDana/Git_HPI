@@ -1,0 +1,12 @@
+wenn (otrs) email zu groß:
+
+auf smail (193.159.183.230) einloggen
+
+
+cd /var/vmail/
+dann in das entprechende postfach, zb:
+cd support\@micropayment.ch/
+in cur/  (oder evtl new/) liegt die mail
+
+zu carsten verschieben und ihm bescheid sagen
+mv cur/1508250468.V904I175badM750146.smail\:2\, ../ckessel\@micropayment.de/new/

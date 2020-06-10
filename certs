@@ -1,0 +1,26 @@
+cd /etc/postfix/
+ls
+less main.cf
+cp /home/dherbeck/micropayment.de_2017.* /etc/ssl/postfix/
+cp /home/dherbeck/IntermediateCA_2017.crt /etc/ssl/postfix/
+cd /etc/ssl/postfix/
+ls
+less micropayment.de_2015.crt 
+less -L micropayment.de_2015.crt 
+cat micropayment.de_2017.key-nopw >> micropayment.de_2017.crt 
+less -L micropayment.de_2017.crt 
+less -L micropayment.de_2015.intermediate.crt 
+cd /etc/postfix/
+ls
+nano main.cf
+/etc/init.d/postfix restart
+less /var/log/mail
+tail -f /var/log/mail
+
+                                                                                                                                                                                                                                                 cd courier-imap/                                                                                                                                                                                                                                                    ls                                                                                                                                                                                                                                                        
+                                                                                                                                                     
+nano imapd-ssl                                                                                                                                                                                                                                            
+nano pop3d-ssl                                                                                                                                                                                                                                            
+                                                                                                                                                                            /etc/init.d/courier-imapd-ssl restart                                                                                                                                                                                                                     
+/etc/init.d/courier-pop3d-ssl restart
+    

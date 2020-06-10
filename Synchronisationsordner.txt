@@ -1,0 +1,11 @@
+für Kundenverwaltung\BIW_Kunden:
+
+auf dem Domaincontroller die Person zur biwverwaltung Gruppe hinzufügen
+
+
+----???----
+Synchronisationsordner/owncloud --> Fileserver
+
+
+/etc/local.d/owncloud.start
+df -h

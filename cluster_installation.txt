@@ -1,0 +1,20 @@
+dev/nvme0n1
+
+boot
+swap
+var/log
+root
+
+Device         Boot     Start        End    Sectors  Size Id Type
+/dev/nvme0n1p1 *         2048     206847     204800  100M 83 Linux
+/dev/nvme0n1p2         206848    4401151    4194304    2G 82 Linux swap / Solaris
+/dev/nvme0n1p3        4401152  214116351  209715200  100G 83 Linux
+/dev/nvme0n1p4      214116352 3907029167 3692912816  1.7T 83 Linux
+
+
+mkswap /dev/nvme0n1p2 
+swapon /dev/nvme0n1p2 
+mount /dev/nvme0n1p4 /mnt/gentoo/
+mount /dev/nvme0n1p1 /mnt/gentoo/boot/
+mount /dev/nvme0n1p3 /mnt/gentoo/var/log/
+

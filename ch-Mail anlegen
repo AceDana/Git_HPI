@@ -1,0 +1,9 @@
+ch-Mail anlegen
+
+im postfix:
+ch-Domäne
+Mailbox anlegen
+passwort vergeben
+
+dann in der phpmyadmin datenbank eintragen
+

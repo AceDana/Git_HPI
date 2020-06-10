@@ -1,0 +1,23 @@
+# Service definition
+define service{
+        use                             generic-service-24x7         ; Name of service template to use
+        host_name                       mp-[SERVER]
+        service_description             mariadb-slave-micropay
+        servicegroups                   mysql-slave
+        max_check_attempts              3
+        check_interval                  2
+        retry_interval                  1
+        check_command                   check-mysql-slave!grabbler!4nju7hNS![3307|3306]
+
+}
+
+
+grabbler user in der Datenbank auf dem Server erstellen
+
+GRANT SUPER, REPLICATION CLIENT, EVENT, TRIGGER, CREATE TABLESPACE ON *.* TO 'grabbler'@'193.159.183.162' IDENTIFIED BY '4nju7hNS';
+
+SET PASSWORD for 'grabbler'@'193.159.183.162' = PASSWORD('4nju7hNS');
+
+
+
+show slave status\G

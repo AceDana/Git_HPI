@@ -1,0 +1,14 @@
+app/etc/local.xml
+
+
+<connection>
+                    <host><![CDATA[192.168.157.107]]></host>
+                    <username><![CDATA[magento_admin]]></username>
+                    <password><![CDATA[vJnJnEQtcJEJ9VJ2ygTF]]></password>
+                    <dbname><![CDATA[magento]]></dbname>
+                    <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
+                    <model><![CDATA[mysql4]]></model>
+                    <type><![CDATA[pdo_mysql]]></type>
+                    <pdoType><![CDATA[]]></pdoType>
+                    <active>1</active>
+</connection>

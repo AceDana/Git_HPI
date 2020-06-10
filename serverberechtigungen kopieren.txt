@@ -1,0 +1,6 @@
+serverberechtigungen kopieren
+
+
+show grants for username@'ip-addr';
+
+diese dann mit neuer ip-addr kopieren
