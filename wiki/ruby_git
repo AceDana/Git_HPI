@@ -1,5 +1,0 @@
-git reset --hard HEAD
-git checkout 9-3-stable
-
-
-bundle exec rake gitlab:setup RAILS_ENV=production
